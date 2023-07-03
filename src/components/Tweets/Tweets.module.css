@@ -1,0 +1,39 @@
+.tweetCard {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetBackBtn {
+  color: #373737;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0 0 20px 14px;
+  text-decoration-line: none;
+}
+
+.tweetList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.loadMoreBtn {
+  align-self: center;
+  padding: 14px 28px;
+  min-width: 196px;
+  border: none;
+  border-radius: 10px;
+  background: #ebd8ff;
+  box-shadow: 0px 3.4px 3.4px 0px rgba(0, 0, 0, 0.25);
+  color: #373737;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
