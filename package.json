@@ -1,5 +1,6 @@
 {
-  "name": "tweets-task",
+  "name": "tweet-test",
+  "homepage": "https://Yana2393.github.io/tweet-test/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
