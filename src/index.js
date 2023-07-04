@@ -8,7 +8,7 @@ import { store } from './redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/tweet-test">
     <Provider store={store}>
       <App />
     </Provider>
