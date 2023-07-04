@@ -29,7 +29,7 @@ export const UserCard = ({ user }) => {
         <img className={css.homeCardFrame} src={ellipse} alt="frame" />
         <img className={css.homeCardAvatar} src={user.avatar} alt="avatar" />
 
-        <Link className={css.homeTitle} to={`tweets/${user.id}`}>
+        <Link className={css.homeTitle} to={`/tweets/${user.id}`}>
           {(+user.tweets).toLocaleString("en-EN")} tweets
         </Link>
         <p className={css.homeTxt}>
