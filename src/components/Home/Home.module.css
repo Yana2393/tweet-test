@@ -6,7 +6,7 @@
 }
 
 .homeSelect {
-  width: 300px;
+  width: 50%;
   margin: 30px;
 }
 
@@ -15,6 +15,7 @@
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
+  gap: 32px;
   margin: 0;
   padding: 0;
 }
@@ -30,7 +31,6 @@
   box-shadow: -2.5776965618133545px 6.873857021331787px 20.621572494506836px 0px
     rgba(0, 0, 0, 0.23);
   padding: 20px 20px;
-  margin: 0 32px 32px 0;
 }
 
 .homeCardLogo {
@@ -77,7 +77,7 @@
 }
 
 .homeTitle {
-  color: #ebd8ff;
+  color: rgba(235, 216, 255, 1);
   font-size: 20px;
   font-family: Montserrat;
   font-style: normal;
@@ -88,8 +88,16 @@
   text-decoration-line: none;
 }
 
+.homeTitle:hover {
+  color: rgba(92, 211, 168, 1);
+}
+
+.homeTitle:focus {
+  color: rgba(92, 211, 168, 1);
+}
+
 .homeTxt {
-  color: #ebd8ff;
+  color: rgba(235, 216, 255, 1);
   font-size: 20px;
   font-family: Montserrat;
   font-style: normal;
@@ -107,7 +115,7 @@
   min-width: 196px;
   border: none;
   border-radius: 10.311px;
-  background: #ebd8ff;
+  background: rgba(235, 216, 255, 1);
   box-shadow: 0px 3.4px 3.4px 0px rgba(0, 0, 0, 0.25);
   color: #373737;
   font-size: 18px;
@@ -116,6 +124,10 @@
   text-transform: uppercase;
   margin-bottom: 16px;
   cursor: pointer;
+}
+
+.homeBtn:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .homeBtn:hover:focus {
@@ -139,4 +151,12 @@
   margin-bottom: 16px;
   cursor: pointer;
   background: rgba(92, 211, 168, 1);
+}
+
+.homeBtnActive:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.homeBtnActive:hover:focus {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
 }

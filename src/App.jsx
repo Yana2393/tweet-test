@@ -6,9 +6,6 @@ import css from './App.module.css';
 const App = () => {
   return (
     <div className={css.header}>
-      {/* <Link to="/">Home</Link> */}
-      {/* <Link to="/tweets/:id">Tweets</Link> */}
-
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/tweets/:id" element={<Tweets />} />

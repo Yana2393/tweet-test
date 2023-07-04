@@ -5,13 +5,27 @@
 }
 
 .tweetBackBtn {
+  align-self: self-start;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(92, 211, 168, 1);
   color: #373737;
-  font-size: 14px;
+  box-shadow: 0px 3.4px 3.4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  margin: 0 0 20px 14px;
+  margin: 0 0 20px 0;
   text-decoration-line: none;
+}
+
+.tweetBackBtn:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.tweetBackBtn:hover:focus {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .tweetList {
@@ -29,11 +43,19 @@
   min-width: 196px;
   border: none;
   border-radius: 10px;
-  background: #ebd8ff;
+  background: rgba(92, 211, 168, 1);
   box-shadow: 0px 3.4px 3.4px 0px rgba(0, 0, 0, 0.25);
   color: #373737;
   font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.loadMoreBtn:hover {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.loadMoreBtn:hover:focus {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.25) inset;
 }

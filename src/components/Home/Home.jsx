@@ -1,6 +1,6 @@
 import css from "./Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchUsers } from "../../redux/oprations";
 import { getUsers } from "../../redux/selectors";
 import { UserCard } from "../UserCard/UserCard";
@@ -14,7 +14,7 @@ const options = [
 const customStyles = {
     control: provided => ({
       ...provided,
-      backgroundColor: 'rgba(235, 216, 255, 1)', // Стилизация фона окна
+      backgroundColor: 'rgba(87, 54, 163, 0.8)', // Стилизация фона окна
       height: '50px',
       appearance: 'none', // Removing default appearance
       WebkitAppearance: 'none',
@@ -24,11 +24,11 @@ const customStyles = {
       ...provided,
 
       backgroundColor: isSelected
-        ? 'rgba(255, 255, 255, 0.10)'
+        ? 'rgba(255, 255, 255, 0.3)'
         : isFocused
-        ? 'rgba(255, 255, 255, 0.10)'
+        ? 'rgba(255, 255, 255, 0.3)'
         : 'transparent', // Стилизация фона активной опции и ховера
-      color: isSelected ? 'rgba(55, 55, 55, 1)' : '#FBFBFB', // Стилизация цвета текста активной опции в списке
+      color: isSelected ? 'rgb(228,190,82)' : 'rgba(235, 216, 255, 1)', // Стилизация цвета текста активной опции в списке
       appearance: 'none', // Removing default appearance
       WebkitAppearance: 'none',
       MozAppearance: 'none',
@@ -36,11 +36,11 @@ const customStyles = {
     menu: provided => ({
       ...provided,
       background:
-        'rgba(235, 216, 255, 1)', // Градиентный фон для списка опций
+        'rgba(87, 54, 163, 1)', // Градиентный фон для списка опций
     }),
     singleValue: provided => ({
       ...provided,
-      color: 'rgba(55, 55, 55, 1)', // Цвет текста активного селектора в окне
+      color: 'rgb(228,190,82)', // Цвет текста активного селектора в окне
     }),
     indicatorSeparator: provided => ({
       ...provided,
@@ -69,19 +69,57 @@ const customStyles = {
 
 export const Home = () => {
   const dispatch = useDispatch();
+  const { users } = useSelector(getUsers);
+  const [filteredUsers, setFilteredUsers] = useState(users);
+  const [selectedOption, setSelectedOption] = useState(options[0]);
+
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
-  const { users } = useSelector(getUsers);
+  useEffect(() => {
+    if (selectedOption.value === 'all') {
+      setFilteredUsers(users);
+    } else if (selectedOption.value === 'follow') {
+      const filtered = users.filter(user => !user.following);
+      setFilteredUsers(filtered);
+    } else if (selectedOption.value === 'followings') {
+      const filtered = users.filter(user => user.following);
+      setFilteredUsers(filtered);
+    }
+  }, [selectedOption, users]);
+
+  const handleFilterChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
 
   return (
     <div className={css.homeCardWrap}>
-      <Select options={options} className={css.homeSelect} styles={customStyles}/>
+      <Select
+        value={selectedOption}
+        onChange={handleFilterChange}
+        options={options}
+        className={css.homeSelect}
+        styles={customStyles}
+        theme={theme => ({
+            ...theme,
+
+            colors: {
+              ...theme.colors,
+              primary50: 'rgba(255, 255, 255, 0.3)',
+              primary: 'transparent',
+              neutral40: 'rgb(228,190,82)', // ховер на птичку
+              neutral20: 'transparent', // бордер
+              neutral30: 'transparent', // ховер бордер
+              neutral50: 'rgb(228,190,82)', // цвет плейсхолдера
+              neutral80: 'rgb(228,190,82)',
+            },
+          })}
+      />
       <ul className={css.homeList}>
-        {users.map(user => (
-            <UserCard key={user.id} user={user} />
-          ))}
+        {filteredUsers.map(user => (
+          <UserCard key={user.id} user={user} />
+        ))}
       </ul>
     </div>
   );
